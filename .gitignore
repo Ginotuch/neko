@@ -37,3 +37,6 @@ bin
 
 # Environment files
 *.env
+
+# Jetbrains
+.idea/
