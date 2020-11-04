@@ -1,0 +1,41 @@
+{
+  "HomepageLocation": "",
+  "AutoFillEnabled": false,
+  "AutofillAddressEnabled": false,
+  "AutofillCreditCardEnabled": false,
+  "BrowserSignin": 0,
+  "DefaultNotificationsSetting": 2,
+  "DeveloperToolsAvailability": 1,
+  "EditBookmarksEnabled": false,
+  "FullscreenAllowed": true,
+  "IncognitoModeAvailability": 1,
+  "SyncDisabled": true,
+  "AutoplayAllowed": true,
+  "BrowserAddPersonEnabled": false,
+  "BrowserGuestModeEnabled": false,
+  "DefaultPopupsSetting": 2,
+  "DownloadRestrictions": 3,
+  "VideoCaptureAllowed": true,
+  "AllowFileSelectionDialogs": false,
+  "PromptForDownloadLocation": false,
+  "BookmarkBarEnabled": false,
+  "PasswordManagerEnabled": false,
+  "URLBlacklist": [
+      "file://*",
+      "chrome://policy"
+  ],
+  "ExtensionInstallWhitelist": [
+      "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+      "padekgcemlokbadohgkifijomclgjgif",
+      "gklbnfpdipieekaagaklpmhmbeemmgjp"
+  ],
+  "ExtensionInstallBlacklist": [
+    "*"
+  ],
+  "DefaultSearchProviderKeyword": "google.com",
+  "DefaultSearchProviderName": "google.com",
+  "DefaultSearchProviderSearchURL": "https://google.com/search?q={searchTerms}&{google:RLZ}{google:originalQueryForSuggestion}{google:assistedQueryStats}{google:searchFieldtrialParameter}{google:searchClient}{google:sourceId}ie={inputEncoding}",
+  "DefaultSearchProviderEnabled": true,
+  "DnsOverHttpsMode": "automatic",
+  "BuiltInDnsClientEnabled": true
+}

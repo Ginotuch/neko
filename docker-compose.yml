@@ -1,0 +1,55 @@
+version: '3.4'
+
+services:
+  vpn:
+    image: dperson/openvpn-client
+    # cap_add, security_opt, and volume required for the image to function
+    cap_add:
+      - net_admin
+    environment:
+      TZ: 'EST5EDT'
+      DNS: '8.8.8.8'
+    networks:
+      - default
+    tmpfs:
+      - /run
+      - /tmp
+    restart: unless-stopped
+    security_opt:
+      - label:disable
+    ports:
+      - "80:8080"
+      - "59000-59100:59000-59100/udp"
+    stdin_open: true
+    tty: true
+    volumes:
+      - /dev/net:/dev/net:z
+      - ./vpn:/vpn
+
+  neko_vpn:
+    container_name: neko_chromium_vpn
+    build: .m1k1o/chromium
+    depends_on:
+      - vpn
+    network_mode: service:vpn
+    restart: always
+    shm_size: "5gb"
+    volumes:
+      - "./certs:/certs"  # comment this out if not using TLS
+    cap_add:
+      - SYS_ADMIN
+    environment:
+      DISPLAY: :99.0
+      NEKO_SCREEN: '1280x720@30'
+      NEKO_PASSWORD: neko
+      NEKO_PASSWORD_ADMIN: admin
+      NEKO_BIND: :8080
+      NEKO_EPR: 59000-59010
+      NEKO_NAT1TO1: xxx.xxx.xxx.xxx
+      NEKO_BROADCAST: 'true'
+      NEKO_RTMP: 'rtmp://xxx.xxx.xxx.xxx/live/neko'
+      NEKO_KEY: /certs/privkey.pem  # comment these out if not using TLS
+      NEKO_CERT: /certs/fullchain.pem
+
+networks:
+  default:
