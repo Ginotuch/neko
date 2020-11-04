@@ -28,7 +28,7 @@ services:
 
   neko_vpn:
     container_name: neko_chromium_vpn
-    build: .m1k1o/chromium
+    build: .Ginotuch/chromium
     depends_on:
       - vpn
     network_mode: service:vpn
